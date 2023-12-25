@@ -1,0 +1,15 @@
+<form (ngSubmit)="onSubmit()" class="container mt-5">
+  <div class="mb-3">
+    <label for="title" class="form-label">Course Title</label>
+    <input type="text" class="form-control" id="title" [(ngModel)]="course.title" name="title" placeholder="Enter Course Title" required>
+  </div>
+  <div class="mb-3">
+    <label for="description" class="form-label">Course Description</label>
+    <textarea class="form-control" id="description" [(ngModel)]="course.description" name="description" placeholder="Enter Course Description" rows="3" required></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="teacherId" class="form-label">Teacher ID</label>
+    <input type="text" class="form-control" id="teacherId" [(ngModel)]="course.teacherId" name="teacherId" placeholder="Enter Teacher ID" required readonly>
+  </div>
+  <button type="submit" class="btn btn-primary">Create Course</button>
+</form>

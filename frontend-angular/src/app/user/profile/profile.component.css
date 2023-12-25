@@ -1,0 +1,19 @@
+/* profile.component.css */
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007bff; /* Bootstrap primary color */
+}
+
+.profile-container ul {
+  padding-left: 0;
+}

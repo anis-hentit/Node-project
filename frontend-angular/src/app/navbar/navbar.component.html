@@ -1,0 +1,29 @@
+<!-- navbar.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">E-Learning Platform</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" *ngIf="authService.isLoggedIn() && !isHomePage()">
+                <a class="nav-link" routerLink="/courses">View Courses</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.isLoggedIn()">
+                <a class="nav-link" routerLink="/lessons">View Lessons</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.isLoggedIn() && authService.hasRole('teacher')">
+                <a class="nav-link" routerLink="/create-course">Create Course</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.isLoggedIn() && authService.hasRole('teacher')">
+                <a class="nav-link" routerLink="/create-lesson">Create Lesson</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.isLoggedIn()">
+                <a class="nav-link" routerLink="/profile/{{ authService.getCurrentUser()?.id }}">Profile</a>
+            </li>
+            <li class="nav-item" *ngIf="authService.isLoggedIn()">
+                <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

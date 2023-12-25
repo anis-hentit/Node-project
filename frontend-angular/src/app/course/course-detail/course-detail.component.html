@@ -1,0 +1,22 @@
+<!-- course-detail.component.html -->
+<div class="container mt-5" *ngIf="course; else loading">
+  <div class="card">
+    <div class="card-header">
+      Course Details
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ course.title }}</h5>
+      <p class="card-text">{{ course.description }}</p>
+      <!-- Display teacher's name -->
+      <p class="card-text" *ngIf="teacher">
+        <strong>Teacher:</strong> {{ teacher.username }}
+      </p>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="text-center">
+    <p>Loading course details...</p>
+  </div>
+</ng-template>

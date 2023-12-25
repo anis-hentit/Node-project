@@ -1,0 +1,23 @@
+<!-- lesson-detail.component.html -->
+<div class="container mt-4" *ngIf="lesson; else loading">
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ lesson.title }}</h2>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ lesson.content }}</p>
+            <p class="card-text" *ngIf="course">
+                <strong>Course:</strong> {{ course.title }}
+            </p>
+            <p class="card-text" *ngIf="teacher">
+                <strong>Teacher:</strong> {{ teacher.username }}
+            </p>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="text-center">
+        <p>Loading lesson details...</p>
+    </div>
+</ng-template>

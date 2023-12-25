@@ -1,0 +1,7 @@
+.container {
+  max-width: 600px;
+}
+
+.card-header, .card-body {
+  padding: 20px;
+}

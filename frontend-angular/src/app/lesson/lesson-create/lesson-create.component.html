@@ -1,0 +1,18 @@
+<form (ngSubmit)="onSubmit()" class="container mt-5">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="lesson.title" name="title" placeholder="Title" required>
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" [(ngModel)]="lesson.content" name="content" placeholder="Content" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="course">Course</label>
+        <select class="form-control" id="course" [(ngModel)]="lesson.courseId" name="courseId" required>
+            <option value="" disabled selected>Select a course</option>
+            <option *ngFor="let course of courses" [value]="course.id">{{ course.title }}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Lesson</button>
+</form>

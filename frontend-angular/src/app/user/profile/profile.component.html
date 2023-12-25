@@ -1,0 +1,26 @@
+<!-- profile.component.html -->
+<div *ngIf="user; else loading" class="profile-container">
+  <h2>User Profile</h2>
+  <p><strong>Username:</strong> {{ user?.username }}</p>
+  <p><strong>Role:</strong> {{ user?.role }}</p>
+
+  <div *ngIf="enrolledCoursesDetails.length">
+    <h3>Enrolled Courses</h3>
+    <ul class="list-group">
+      <!-- Iterate over enrolledCoursesDetails to display course titles -->
+      <li class="list-group-item" *ngFor="let course of enrolledCoursesDetails">
+        {{ course.title }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="!(enrolledCoursesDetails.length)">
+    <p>You are not enrolled in any courses.</p>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="text-center">
+    <p>Loading user profile...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,15 @@
+<!-- lesson-list.component.html -->
+<div class="container mt-5">
+    <h2>Lessons List</h2>
+    <div *ngIf="lessons.length; else noLessons">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let lesson of lessons">
+                <a routerLink="/lessons/{{ lesson.id }}">{{ lesson.title }}</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ng-template #noLessons>
+    <p>No lessons available.</p>
+</ng-template>

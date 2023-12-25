@@ -1,0 +1,21 @@
+<div class="container mt-5">
+    <div *ngFor="let course of courses" class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ course.title }}</h5>
+            <p class="card-text">{{ course.description }}</p>
+            <p class="card-text" *ngIf="course.teacher">
+                <strong>Teacher:</strong> {{ course.teacher.username }}
+            </p>
+            <!-- Link to navigate to the course details -->
+            <a [routerLink]="['/courses', course.id]" class="btn btn-primary">View Details</a>
+            <!-- Enroll button, visible only to students -->
+            <button *ngIf="authService.getCurrentUser()?.role === 'student'" class="btn btn-success ml-2" (click)="enrollInCourse(course.id)">
+                Enroll
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="courses.length === 0">
+        <p>No courses available.</p>
+    </div>
+</div>
